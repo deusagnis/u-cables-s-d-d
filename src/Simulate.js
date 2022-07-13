@@ -68,7 +68,7 @@ export default class Simulate {
      * @returns {number}
      */
     getMainDetectionRange() {
-        return this.settings.detectionSystem.methods.magnetic.range
+        return this.settings.detectionSystem.methods[this.settings.detectionSystem.mainDetectionMethod].range
     }
 
     /**
@@ -83,7 +83,7 @@ export default class Simulate {
      * @param mainRange
      */
     calculateSectorSize(mainRange) {
-        Sector.size = Math.round(Math.sqrt(mainRange ** 2 - (mainRange * 0.20) ** 2) * 0.85 * 2)
+        Sector.size = Math.round(Math.sqrt(mainRange ** 2 - (mainRange * 0.20) ** 2) * Math.sqrt(2))
     }
 
     /**

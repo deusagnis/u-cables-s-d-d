@@ -38,8 +38,8 @@ export default class DecideToAttack {
      * Выбрать целевые сектора.
      */
     chooseTargetSectors() {
-        const startOffset = -1 * (this.uuvIndex + 1) * this.combatSystem.torpedo.ammunition
-        const endOffset = startOffset + this.combatSystem.torpedo.ammunition
+        const startOffset = -1 * (this.uuvIndex + 1) * this.combatSystem.getCurrentWeaponData().ammunition
+        const endOffset = startOffset + this.combatSystem.getCurrentWeaponData().ammunition
 
         this.targetSectorsData = this.detectionData.slice(startOffset, (endOffset >= 0) ? undefined : endOffset)
     }

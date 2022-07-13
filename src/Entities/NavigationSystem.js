@@ -147,7 +147,7 @@ export default class NavigationSystem {
      * Вычислить время движения.
      */
     calcMoveTime() {
-        this.moveTime = Math.round(this.trajectoryDistance / this.constructor.vehicleMaxSpeed * 1.07)
+        this.moveTime = Math.round(this.trajectoryDistance / this.constructor.vehicleMaxSpeed)
     }
 
     /**

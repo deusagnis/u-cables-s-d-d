@@ -1,7 +1,7 @@
 /**
  * Интерфейс окружающей среды.
  */
-export default class Environment{
+export default class Environment {
     /**
      * Данные зоны поиска.
      * @type {{maxDepth: number, width: number, height: number}}
@@ -32,12 +32,12 @@ export default class Environment{
      * @param position
      * @returns {number}
      */
-    static getPositionDepth(position){
-        const x = position.x/Math.max(this.area.width,this.area.height)*40
-        const y = position.y/Math.max(this.area.width,this.area.height)*40
-        const himmelblau = (x**2 + y -11)**2 + (x + y**2 -7)**2
+    static getPositionDepth(position) {
+        const x = position.x / this.area.width * 4
+        const y = position.y / this.area.height * 4
+        const himmelblau = (x ** 2 + y - 11) ** 2 + (x + y ** 2 - 7) ** 2
 
-        return Math.round(this.area.maxDepth*Math.abs(1/(1-Math.exp(himmelblau))))
+        return Math.round(himmelblau % ((this.area.maxDepth-3>=1) ? (this.area.maxDepth-3) : 1) + 3)
     }
 
     /**
@@ -45,7 +45,7 @@ export default class Environment{
      * @param sector
      * @returns {boolean}
      */
-    static sectorHasCable(sector){
+    static sectorHasCable(sector) {
         return !!this.cables.map[sector.toString()]
     }
 }
